@@ -109,9 +109,9 @@ void free_queue(levelorder_queue_t *head)
 }
 
 /**
- * pop - Pops the head of a levelorder_queue_t queue.
+ * pop - pop
  *
- * @head: A double pointer to the head of the queue.
+ * @head: header
  */
 void pop(levelorder_queue_t **head)
 {
