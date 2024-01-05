@@ -1,21 +1,21 @@
 #include "binary_trees.h"
 
-bst_t *bst_remove(bst_t *root, int value);
 bst_t *bst_remove_recursive(bst_t *root, bst_t *node, int value);
-bst_t *bst_delete(bst_t *root, bst_t *node);
+bst_t *bst_remove(bst_t *root, int value);
 bst_t *inorder_successor(bst_t *root);
+bst_t *bst_delete(bst_t *root, bst_t *node);
 
 /**
- * bst_remove - bst_remove
- *
+ * inorder_successor - inorder_successor
  * @root: pointer
- * @value: to be removed
  *
- * Return: A pointer to the new root node of the tree after removing
+ * Return: The minimum value in tree
  */
-bst_t *bst_remove(bst_t *root, int value)
+bst_t *inorder_successor(bst_t *root)
 {
-	return (bst_remove_recursive(root, root, value));
+	while (root->left)
+		root = root->left;
+	return (root);
 }
 
 /**
@@ -81,14 +81,14 @@ bst_t *bst_delete(bst_t *root, bst_t *node)
 }
 
 /**
- * inorder_successor - inorder_successor
- * @root: pointer
+ * bst_remove - bst_remove
  *
- * Return: The minimum value in tree
+ * @root: pointer
+ * @value: to be removed
+ *
+ * Return: A pointer to the new root node of the tree after removing
  */
-bst_t *inorder_successor(bst_t *root)
+bst_t *bst_remove(bst_t *root, int value)
 {
-	while (root->left)
-		root = root->left;
-	return (root);
+	return (bst_remove_recursive(root, root, value));
 }
